@@ -25,4 +25,6 @@
 
 @interface A0FullLoginViewController : A0DatabaseLoginViewController
 
+-(void) triggerFacebook;
+
 @end

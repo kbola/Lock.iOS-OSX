@@ -225,14 +225,14 @@
     A0LogDebug(@"Starting animation to show %@", NSStringFromClass(to.class));
     to.view.alpha = 0.0f;
     from.view.alpha = 0.0f;
-    [UIView animateWithDuration:0.3f animations:^{
+    //[UIView animateWithDuration:0.3f animations:^{
         to.view.alpha = 1.0f;
         self.titleView.title = to.title;
-    } completion:^(BOOL finished) {
+    //} completion:^(BOOL finished) {
         [from.view removeFromSuperview];
         [from removeFromParentViewController];
         [to didMoveToParentViewController:self];
-    }];
+    //}];
 }
 
 #pragma mark - A0SmallSocialServiceCollectionViewDelegate

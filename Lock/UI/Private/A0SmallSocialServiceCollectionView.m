@@ -83,6 +83,15 @@
     [self reloadData];
 }
 
+- (void)triggerFacebook{
+    
+    UIButton * tempB = [UIButton buttonWithType:UIButtonTypeCustom];
+    tempB.tag = 0;
+    
+    [self triggerAuth:tempB];
+    
+}
+
 - (void)triggerAuth:(UIButton *)sender {
     A0ServiceViewModel *service = self.socialServices[sender.tag];
     NSString *connectionName = service.connection.name;
@@ -119,7 +128,7 @@
 
     A0AuthParameters *parameters = [self.parameters copy];
     A0IdentityProviderAuthenticator *authenticator = [self a0_identityAuthenticatorFromProvider:self.lock];
-    A0LogVerbose(@"Authenticating with connection %@", connectionName);
+    A0LogVerbose(@"%@ Authenticating with connection %@",[self class], connectionName);
     [authenticator authenticateWithConnectionName:connectionName parameters:parameters success:successBlock failure:failureBlock];
 }
 
@@ -140,6 +149,9 @@
     [cell.serviceButton addTarget:self action:@selector(triggerAuth:) forControlEvents:UIControlEventTouchUpInside];
     cell.serviceButton.tag = indexPath.item;
     cell.serviceButton.accessibilityLabel = theme.localizedTitle;
+    
+    NSLog(@"Added serviceButton with tag %i for name: %@", cell.serviceButton.tag, service.name);
+    
     return cell;
 }
 

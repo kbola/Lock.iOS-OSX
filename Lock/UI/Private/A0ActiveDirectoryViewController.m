@@ -142,7 +142,7 @@
         hint = [hint substringToIndex:range.location];
     }
     parameters[@"login_hint"] = hint;
-    A0LogVerbose(@"Authenticating with connection %@", connectionName);
+    A0LogVerbose(@"%@ Authenticating with connection %@", [self class], connectionName);
     [authenticator authenticateWithConnectionName:connectionName parameters:parameters success:successBlock failure:failureBlock];
 }
 

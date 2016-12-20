@@ -48,6 +48,8 @@
 @property (strong, nonatomic) A0AuthParameters *parameters;
 @property (strong, nonatomic) A0Lock *lock;
 
+- (void)triggerFacebook;
+
 - (void)showSocialServicesForConfiguration:(A0LockConfiguration *)configuration;
 
 @end

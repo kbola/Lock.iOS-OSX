@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "A0DatabaseLoginViewController.h"
+#import "A0DatabaseLoginViewController.h"f
 #import "A0ProgressButton.h"
 #import "UIButton+A0SolidButton.h"
 #import "A0Errors.h"
@@ -118,6 +118,10 @@
 
 - (void)loginUserWithConnection:(A0Connection *)connection completion:(A0LoginViewCompletionHandler)completion {
 
+    
+    NSLog(@"Login user with connection %@", connection);
+    return;
+    
     NSString *connectionName = connection.name;
 
     A0APIClientAuthenticationSuccess successBlock = ^(A0UserProfile *profile, A0Token *token){
@@ -170,7 +174,7 @@
         hint = [hint substringToIndex:range.location];
     }
     parameters[@"login_hint"] = hint;
-    A0LogVerbose(@"Authenticating with connection %@", connectionName);
+    A0LogVerbose(@"%@ Authenticating with connection %@", [self class], connectionName);
     [authenticator authenticateWithConnectionName:connectionName parameters:parameters success:successBlock failure:failureBlock];
 }
 

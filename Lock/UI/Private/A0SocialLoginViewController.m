@@ -98,6 +98,9 @@ static const CGFloat ServiceCellHeight = 55.0;
 }
 
 - (void)triggerAuth:(UIButton *)sender {
+    
+    NSLog(@"Trigger Auth");
+    
     self.selectedService = sender.tag;
     A0ServiceViewModel *service = self.services[sender.tag];
     A0Connection *connection = service.connection;
@@ -140,7 +143,7 @@ static const CGFloat ServiceCellHeight = 55.0;
     };
     [self setInProgress:YES];
     A0IdentityProviderAuthenticator *authenticator = [self a0_identityAuthenticatorFromProvider:self.lock];
-    A0LogVerbose(@"Authenticating with connection %@", connection.name);
+    A0LogVerbose(@"%@ Authenticating with connection %@", [self class], connection.name);
     [authenticator authenticateWithConnectionName:connection.name parameters:self.parameters success:successBlock failure:failureBlock];
 }
 
@@ -173,6 +176,7 @@ static const CGFloat ServiceCellHeight = 55.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     A0ServiceViewModel *service = self.services[indexPath.row];
     A0ServiceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ServiceCellIdentifier forIndexPath:indexPath];
     [cell applyTheme:service.theme];

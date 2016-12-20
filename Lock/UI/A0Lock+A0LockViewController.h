@@ -23,7 +23,7 @@
 #import <UIKit/UIKit.h>
 #import "A0Lock.h"
 
-@class A0LockViewController, A0LockSignUpViewController;
+@class A0LockViewController, MLLockViewController, A0LockSignUpViewController;
 
 @interface A0Lock (A0LockViewController)
 

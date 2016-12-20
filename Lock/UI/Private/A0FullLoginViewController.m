@@ -43,6 +43,21 @@
 
 @implementation A0FullLoginViewController
 
+-(void)triggerFacebook{
+    NSLog(@"A0FullLoginViewController triggerFacebook");
+    
+    if(_serviceCollectionView){
+        NSLog(@"_serviceCollectionView in A0FullLoginViewController about to trigger");
+
+        [_serviceCollectionView triggerFacebook];
+    }
+    else{
+        NSLog(@"NO _serviceCollectionView in A0FullLoginViewController");
+    }
+    
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -143,6 +158,9 @@
 
 - (void)socialServiceCollectionView:(A0SmallSocialServiceCollectionView *)collectionView
               presentViewController:(UIViewController *)controller {
+    
+    NSLog(@"A0FullLOginViewController social services collection view");
+    
     [self presentViewController:controller animated:YES completion:nil];
 }
 
