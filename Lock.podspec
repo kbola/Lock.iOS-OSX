@@ -2,7 +2,7 @@ version = `agvtool mvers -terse1`.strip
 
 Pod::Spec.new do |s|
   s.name             = "Lock"
-  s.version          = version
+  s.version          = "version"
   s.summary          = "A library that uses Auth0 for Authentication with Native Look & Feel"
   s.description      = <<-DESC
 [![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)
@@ -19,6 +19,8 @@ Auth0 is a SaaS that helps you with Authentication and Authorization. You can us
   s.osx.deployment_target = "10.9"
 
   s.requires_arc = true
+
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
 
 
   s.default_subspecs = 'UI', 'Core', 'WebView'
